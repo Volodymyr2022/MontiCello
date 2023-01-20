@@ -1,0 +1,21 @@
+@mixin flexBox($flex, $justify, $align, $wrap) {
+    display: $flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+}
+
+@mixin fontSize($weight, $size, $height, $normal) {
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+    font-style: $normal;
+}
+
+@mixin positWidHeig($position, $left, $top, $width, $height) {
+    position: $position;
+    left: $left;
+    top: $top;
+    width: $width;
+    height: $height;
+}

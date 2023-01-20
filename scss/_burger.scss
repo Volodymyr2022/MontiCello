@@ -1,0 +1,124 @@
+.menu {
+    &__list {
+        
+        display: flex;
+        position: relative;
+        z-index: 7;
+
+        @media (max-width: 768px){
+            flex-direction: column;
+            margin-top: 0;
+        }
+    }
+
+    &__item {
+        margin: 0 30px;
+        text-align: center;
+        position: relative;
+        @media (max-width: 768px){
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            padding: 12px 0;
+            box-shadow: inset 0px 1px 8px 2px #123747;
+        }
+        &::before {
+            content: '';
+            @include positWidHeig(absolute, -24px, 0, 10px, 10px);
+            transform: translateY(50%);
+            border-radius: 50%;
+            border: 1px solid white;
+            transition: all 0.3s linear;
+            @media (max-width: 768px){
+                display: none;
+            }
+        }
+
+        &:hover::before {
+            background-color: #3549a1;
+            border-color: #3549a1;
+        }
+
+
+    }
+    &__link {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 14px;
+        font-family: 'Source Sans Pro', sans-serif;
+        transition: all 0.3s linear;
+
+        &:hover {
+            font-size: 16px;
+            color: #3549a1;
+            transition: all 0.3s linear;
+            @media (max-width: 768px) {
+                color: #ffffff;
+                font-size: 18px;
+                font-weight: bolder;  
+            }
+        }
+    }
+    &__burger {
+        display: none;
+
+        @media (max-width: 768px) {
+            position: relative;
+            display: block;
+            width: 30px;
+            height: 20px;
+            z-index: 6;
+
+            &.active::before {
+                transform: rotate(45deg);
+                width: 30px;
+                top: 9px;
+            }
+            &.active::after {
+                transform: rotate(-45deg);
+                width: 30px;
+                bottom: 9px;
+            }
+
+            span {
+                @include positWidHeig(absolute, unset, 9px, 100%, 2px);
+                display: block;
+                background: #fff;
+
+                &.hide {
+                    opacity: 0;
+                }
+            }
+
+            &::after,
+            &::before {
+                content: "";
+                @include positWidHeig(absolute, 0, unset, 30px, 2px);
+                background: #fff;              
+            }
+
+            &::before {
+                top: 0;
+            }
+
+            &::after {
+                bottom: 0;
+                width: 30px;
+            }
+        }
+    }
+
+    &__items {
+        @media (max-width: 768px) {
+            @include positWidHeig(fixed, -100%, 0, 100%, unset);
+            background: linear-gradient(0deg, #8a9cfdf2, #171e1e94);
+            padding: 70px 0 0 0;
+            transition: all 0.3s linear;
+
+            &.active {
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+}
